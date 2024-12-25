@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 col-12 p-0">
+            <div class="wrapper">
+                <nav id="sidebar">
+                    <div class="sidebar-header text-center">
+                        <img src="https://img.freepik.com/premium-photo/car-logo-with-curved-road_639744-30896.jpg?w=360"  class="img-fluid rounded-circle shadow-sm" alt="logo"/>
+                    </div>
+                    <h3 class="text-center">Rental Vehicles</h3>
+                    <ul class="navbar-nav pt-5 pb-5">
+                        <li class="nav-item">
+                            <a routerLink="/user/cars" class="nav-link">
+                                <i class="fa fa-car"></i> Cars
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/user/bikes" class="nav-link">
+                                <i class="fa fa-motorcycle"></i> Bikes
+                            </a>
+                        </li>
+                       
+                        <li class="nav-item">
+                            <a routerLink="/user/wish" class="nav-link">
+                                <i class="fa fa-heart"></i> Wishlist
+                                <span class="badge bg-danger">{{length}}</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a routerLink="/user/order" class="nav-link">
+                                <i class="fa fa-box"></i> Orders
+                            </a>
+                        </li>
+                    </ul>
+            
+                    <ul class="list-unstyled CTAs pt-5">
+                        <li>
+                            <a routerLink="#" class="download">
+                                <i class="fa fa-user-circle"></i> {{userName}}
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="#" class="article" (click)="logOut()">
+                                <i class="fa fa-sign-out-alt"></i> LogOut
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="col-md-9 pl-0">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,26 @@
+
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let v of cars">
+        <a [routerLink]="['/user/view', v.vehicleId]" (click)="openvehicle(v.vehicleId)">
+        <div class="card mb-3">
+          <img 
+            [src]="v.vehicleImage" 
+            class="card-img-top" 
+            alt="{{ v.vehicleName }}" 
+            style="height: 200px; object-fit: cover;"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ v.vehicleName }}</h5>
+            <p class="card-text">
+              <strong>Company:</strong> {{ v.vehicleCompany }} <br>
+              <strong>Price:</strong> ₹{{ v.vehiclePrice }} <br>
+            </p>
+            <p><span class="badge bg-primary">{{v.rating}}<i class="fa fa-star"></i></span></p>
+          </div>
+        </div>
+    </a>
+      </div>
+    </div>
+  </div>
+  

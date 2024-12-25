@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row pt-5">
+        <div class="col-md-4">
+            <div class="wrapper">
+                <form class="p-3 mt-3" [formGroup]="loginForm" (ngSubmit)="checkLogin()">
+                    <div class="form-field d-flex align-items-center">
+                        <input type="text" name="userName" id="userName" placeholder="Username" formControlName="userName">
+                    </div>
+                    <div class="form-field d-flex align-items-center">
+                        <input type="password" name="password" id="pwd" placeholder="Password" formControlName="password">
+                    </div>
+                    <button class="btn mt-3">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,146 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let v of vehicles">
+      <div class="card mb-3">
+        <img 
+          [src]="v.vehicleImage" 
+          class="card-img-top" 
+          alt="{{ v.vehicleName }}" 
+          style="height: 200px; object-fit: cover;"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ v.vehicleName }}</h5>
+          <p class="card-text">
+            <strong>Company:</strong> {{ v.vehicleCompany }} <br>
+            <strong>Price:</strong> ₹{{ v.vehiclePrice }} <br>
+            <strong>Type:</strong> {{ v.vehicleType }} <br>
+            <strong>Fuel:</strong> {{ v.fuelType }} <br>
+            <strong>Seating:</strong> {{ v.seatingCapacity }} <br>
+            <strong>Rating:</strong> {{ v.rating }} ★
+          </p>
+          <button 
+            class="btn btn-danger btn-sm me-2" 
+            (click)="deleteNow(v.vehicleId)"
+          >
+            Delete
+          </button>
+          <button 
+            class="btn btn-primary btn-sm" 
+            (click)="vehicleSelected(v)"
+            data-bs-toggle="modal" 
+            data-bs-target="#editVehicleModal"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div 
+    class="modal fade" 
+    id="editVehicleModal" 
+    tabindex="-1" 
+    aria-labelledby="editVehicleLabel" 
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editVehicleLabel">Edit Vehicle</h5>
+          <button 
+            type="button" 
+            class="btn-close" 
+            data-bs-dismiss="modal" 
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="vehicleName" class="form-label">Vehicle Name</label>
+              <input 
+                type="text" 
+                id="vehicleName" 
+                class="form-control" 
+                [(ngModel)]="updateVehicle.vehicleName" 
+                name="vehicleName"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="vehiclePrice" class="form-label">Price</label>
+              <input 
+                type="number" 
+                id="vehiclePrice" 
+                class="form-control" 
+                [(ngModel)]="updateVehicle.vehiclePrice" 
+                name="vehiclePrice"
+              />
+            </div>
+            <div class="mb-3">
+                <label for="vehicleType" class="form-label">Vehicle Type</label>
+                <input 
+                  type="text" 
+                  id="vehicleType" 
+                  class="form-control" 
+                  [(ngModel)]="updateVehicle.vehicleType" 
+                  name="vehicleType"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="fuelType" class="form-label">Fuel Type</label>
+                <input 
+                  type="text" 
+                  id="fuelType" 
+                  class="form-control" 
+                  [(ngModel)]="updateVehicle.fuelType" 
+                  name="fuelType"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="seatingCapacity" class="form-label">Seating Capacity</label>
+                <input 
+                  type="text" 
+                  id="seatingCapacity" 
+                  class="form-control" 
+                  [(ngModel)]="updateVehicle.seatingCapacity" 
+                  name="seatingCapacity"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="rating" class="form-label">Rating</label>
+                <input 
+                  type="number" 
+                  id="rating" 
+                  class="form-control" 
+                  [(ngModel)]="updateVehicle.rating" 
+                  name="rating"
+                />
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button 
+            type="button" 
+            class="btn btn-secondary" 
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button 
+            type="button" 
+            class="btn btn-primary" 
+            (click)="updateNow()" 
+            data-bs-dismiss="modal"
+          >
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  

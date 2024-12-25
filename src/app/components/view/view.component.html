@@ -1,0 +1,130 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg">
+        <img
+          [src]="vehicle.vehicleImage"
+          class="card-img-top rounded-top"
+          alt="{{ vehicle.vehicleName }}"
+          style="height: 400px; object-fit: cover;"
+        />
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">{{ vehicle.vehicleName }}</h2>
+          <hr />
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Company:</strong> {{ vehicle.vehicleCompany }}</p>
+              <p><strong>Price:</strong> ₹{{ vehicle.vehiclePrice }}</p>
+              <p><strong>Type:</strong> {{ vehicle.vehicleType }}</p>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Fuel Type:</strong> {{ vehicle.fuelType }}</p>
+              <p><strong>Seating Capacity:</strong> {{ vehicle.seatingCapacity }}</p>
+              <p><strong>Rating:</strong> {{ vehicle.rating }} ★</p>
+              <p><strong>Available Time:</strong> {{ vehicle.availableTime }}</p>
+            </div>
+          </div>
+          <hr />
+          <div class="text-center">
+            <button
+              class="btn btn-primary me-2"
+              data-bs-toggle="modal"
+              data-bs-target="#orderModal"
+              (click)="orderedVehicle = vehicle"
+            >
+              Book Now
+            </button>
+            <button
+              class="btn btn-secondary"
+              (click)="addToWishlist(vehicle)"
+            >
+              Add to Wishlist
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div
+  class="modal fade"
+  id="orderModal"
+  tabindex="-1"
+  aria-labelledby="orderModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="orderModalLabel">Order Now</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="username" class="form-label">Your Name</label>
+            <input
+              type="text"
+              id="username"
+              class="form-control"
+              [(ngModel)]="uname"
+              name="uname"
+              disabled=""
+            />
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Your Address</label>
+            <textarea
+              id="address"
+              class="form-control"
+              [(ngModel)]="uaddress"
+              name="uaddress"
+              rows="2"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="deliveryTime" class="form-label">Delivery Time</label>
+            <input
+              type="time"
+              id="deliveryTime"
+              class="form-control"
+              [(ngModel)]="utime"
+              name="utime"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Vehicle Details</label>
+            <p><strong>Name:</strong> {{ orderedVehicle?.vehicleName }}</p>
+            <p><strong>Price:</strong> ₹{{ orderedVehicle?.vehiclePrice }}</p>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="orderNow()"
+          data-bs-dismiss="modal"
+        >
+          Confirm Order
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

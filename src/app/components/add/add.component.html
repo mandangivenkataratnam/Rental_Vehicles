@@ -1,0 +1,77 @@
+<div class="container pt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Add Vehicle</h3>
+                    <form [formGroup]="addVehicle" (ngSubmit)="addNow()">
+                        <!-- Vehicle ID -->
+                        <div class="mb-3">
+                            <label for="vehicleId" class="form-label">Vehicle ID</label>
+                            <input type="text" id="vehicleId" class="form-control" formControlName="vehicleId" placeholder="Enter Vehicle ID">
+                        </div>
+                        
+                        <!-- Vehicle Name -->
+                        <div class="mb-3">
+                            <label for="vehicleName" class="form-label">Vehicle Name</label>
+                            <input type="text" id="vehicleName" class="form-control" formControlName="vehicleName" placeholder="Enter Vehicle Name">
+                        </div>
+                        
+                        <!-- Vehicle Company -->
+                        <div class="mb-3">
+                            <label for="vehicleCompany" class="form-label">Vehicle Company</label>
+                            <input type="text" id="vehicleCompany" class="form-control" formControlName="vehicleCompany" placeholder="Enter Vehicle Company">
+                        </div>
+                        
+                        <!-- Vehicle Price -->
+                        <div class="mb-3">
+                            <label for="vehiclePrice" class="form-label">Vehicle Price</label>
+                            <input type="text" id="vehiclePrice" class="form-control" formControlName="vehiclePrice" placeholder="Enter Vehicle Price">
+                        </div>
+                        
+                        <!-- Vehicle Type -->
+                        <div class="mb-3">
+                            <label for="vehicleType" class="form-label">Vehicle Type</label>
+                            <input type="text" id="vehicleType" class="form-control" formControlName="vehicleType" placeholder="Enter Vehicle Type">
+                        </div>
+                        
+                        <!-- Vehicle Image -->
+                        <div class="mb-3">
+                            <label for="vehicleImage" class="form-label">Vehicle Image URL</label>
+                            <input type="text" id="vehicleImage" class="form-control" formControlName="vehicleImage" placeholder="Enter Vehicle Image URL">
+                        </div>
+                        
+                        <!-- Fuel Type -->
+                        <div class="mb-3">
+                            <label for="fuelType" class="form-label">Fuel Type</label>
+                            <input type="text" id="fuelType" class="form-control" formControlName="fuelType" placeholder="Enter Fuel Type">
+                        </div>
+                        
+                        <!-- Available Time -->
+                        <div class="mb-3">
+                            <label for="availableTime" class="form-label">Available Time</label>
+                            <input type="text" id="availableTime" class="form-control" formControlName="availableTime" placeholder="Enter Available Time">
+                        </div>
+                        
+                        <!-- Seating Capacity -->
+                        <div class="mb-3">
+                            <label for="seatingCapacity" class="form-label">Seating Capacity</label>
+                            <input type="text" id="seatingCapacity" class="form-control" formControlName="seatingCapacity" placeholder="Enter Seating Capacity">
+                        </div>
+                        
+                        <!-- Rating -->
+                        <div class="mb-3">
+                            <label for="rating" class="form-label">Rating</label>
+                            <input type="text" id="rating" class="form-control" formControlName="rating" placeholder="Enter Rating">
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg" [disabled]="!addVehicle.valid">Add Vehicle</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
